@@ -33,18 +33,18 @@ class NewsEntry {
         required this.userUsername,
     });
 
-    factory NewsEntry.fromJson(Map<String, dynamic> json) => NewsEntry(
-        id: json["id"],
-        title: json["title"],
-        content: json["content"],
-        category: json["category"],
-        thumbnail: json["thumbnail"],
-        newsViews: json["news_views"],
+  factory NewsEntry.fromJson(Map<String, dynamic> json) => NewsEntry(
+        id: json["id"] ?? '',
+        title: json["title"] ?? '',
+        content: json["content"] ?? '',
+        category: json["category"] ?? '',
+        thumbnail: json["thumbnail"] ?? '',
+        newsViews: json["news_views"] ?? 0,
         createdAt: DateTime.parse(json["created_at"]),
-        isFeatured: json["is_featured"],
-        userId: json["user_id"],
-        userUsername: json["user_username"],
-    );
+        isFeatured: json["is_featured"] ?? false,
+        userId: json["user_id"] ?? 0,
+        userUsername: json["user_username"] ?? '',
+      );
 
     Map<String, dynamic> toJson() => {
         "id": id,
